@@ -22,15 +22,23 @@ typedef std::deque<chat_message> chat_message_queue;
 //creates a virtual class that represents the chat participant
 class chat_participant
 {
+// to do
+ // --> assigne the id of the participant
 public:
     virtual ~chat_participant() {}
     virtual void deliver(const chat_message& msg) = 0;
+    // to do
+	// --> add a virtual function to get the id of the participant
 };
 
 typedef std::shared_ptr<chat_participant> chat_participant_ptr;
 
 //----------------------------------------------------------------------
 //creates a class that represents the chat room where participants can join and leave
+//to do
+//--> right now it creates a single chat room where all the participants are communicating
+//--> change the class to create multiple chat rooms where participants can join and leave
+//--> based on the message the participant sends, the message should be delivered to the correct chat room
 class chat_room
 {
 public:
@@ -207,6 +215,13 @@ int main(int argc, char* argv[])
 {
     try
     {
+		// to do 
+        // -->change the main function to accept multiple ports
+        // wait for the client to sent a message which may containt the 
+		// reciever id and the sender id
+		// --> connect the participants to the correct chat room bsed on the id
+		// sent by the client
+
         if (argc < 2)
         {
             std::cerr << "Usage: chat_server <port> [<port> ...]\n";
